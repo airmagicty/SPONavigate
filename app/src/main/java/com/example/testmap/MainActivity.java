@@ -16,16 +16,15 @@ public class MainActivity extends AppCompatActivity {
 //    private ScaleGestureDetector mScaleGestureDetector;
 //    private float mScaleFactor = 1.0f;
 
-    private Button buttonL, buttonR, buttonU, buttonD;
     private View map;
-    private ImageButton buttonMap;
+    private ImageButton buttonMap, buttonU, buttonD, buttonR, buttonL;
     private ImageView mapImage;
     private TextView textDebug;
 
     MapLoader loaderMap;
 
     private int rotate = 0;
-    private int mapBegin = 3, mapEnd = 4, mapFloor = 3;
+    private int mapBegin = 3, mapEnd = 21, mapFloor = 3;
 
     @SuppressLint("MissingInflatedId")
     @Override

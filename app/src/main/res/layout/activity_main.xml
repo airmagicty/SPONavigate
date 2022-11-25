@@ -81,47 +81,46 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
+        <ImageButton
+            android:id="@+id/buttonR"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:backgroundTint="#2B2B2B"
+            android:minHeight="48dp"
+            app:srcCompat="@drawable/ic_baseline_rotate_right_24" />
+
+        <ImageButton
             android:id="@+id/buttonD"
             android:layout_width="48dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/buttonU"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="false"
-            android:text="@string/d" />
+            android:backgroundTint="#2B2B2B"
+            android:minHeight="48dp"
+            app:srcCompat="@drawable/ic_baseline_arrow_downward_24" />
 
-        <Button
+        <ImageButton
             android:id="@+id/buttonU"
             android:layout_width="48dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_marginTop="280dp"
-            android:text="@string/u" />
+            android:backgroundTint="#2B2B2B"
+            android:minHeight="48dp"
+            app:srcCompat="@drawable/ic_baseline_arrow_upward_24" />
 
-        <Button
+        <ImageButton
             android:id="@+id/buttonL"
             android:layout_width="48dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="false"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="false"
-            android:layout_alignParentEnd="false"
-            android:layout_alignParentRight="false"
             android:layout_alignParentBottom="true"
-            android:text="@string/l"/>
-
-        <Button
-            android:id="@+id/buttonR"
-            android:layout_width="48dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="false"
-            android:layout_alignParentLeft="false"
-            android:layout_alignParentTop="false"
-            android:layout_alignParentEnd="false"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:text="@string/r" />
+            android:backgroundTint="#2B2B2B"
+            android:minHeight="48dp"
+            app:srcCompat="@drawable/ic_baseline_rotate_left_24" />
 
         <com.jsibbold.zoomage.ZoomageView
             android:id="@+id/mapImage"
