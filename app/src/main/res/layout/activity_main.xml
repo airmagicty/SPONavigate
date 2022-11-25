@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="10dp"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/testPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:minHeight="60dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Spinner
+                android:id="@+id/spinner3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:entries="@array/namespath"
+                android:prompt="@string/begspinnerstr"
+                android:spinnerMode="dialog" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/begspinnerstr" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/buttonMap"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="#2B2B2B"
+            android:focusableInTouchMode="false"
+            android:src="@drawable/ic_baseline_directions_walk_24" />
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Spinner
+                android:id="@+id/spinnerEnd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/endspinnerstr"
+                android:dropDownSelector="@color/purple_200"
+                android:entries="@array/namespath"
+                android:prompt="@string/endspinnerstr"
+                android:spinnerMode="dialog"
+                tools:ignore="DuplicateSpeakableTextCheck" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/endspinnerstr" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/buttonD"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonU"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="false"
+            android:text="@string/d" />
+
+        <Button
+            android:id="@+id/buttonU"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="280dp"
+            android:text="@string/u" />
+
+        <Button
+            android:id="@+id/buttonL"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentBottom="true"
+            android:text="@string/l"/>
+
+        <Button
+            android:id="@+id/buttonR"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:text="@string/r" />
+
+        <com.jsibbold.zoomage.ZoomageView
+            android:id="@+id/mapImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/todo"
+            tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/textDebug"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/todo" />
+
+    </RelativeLayout>
+
+</LinearLayout>
