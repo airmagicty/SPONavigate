@@ -81,6 +81,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.jsibbold.zoomage.ZoomageView
+            android:id="@+id/mapImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/todo"
+            tools:ignore="ImageContrastCheck" />
+
         <ImageButton
             android:id="@+id/buttonR"
             android:layout_width="48dp"
@@ -121,13 +128,6 @@
             android:backgroundTint="#2B2B2B"
             android:minHeight="48dp"
             app:srcCompat="@drawable/ic_baseline_rotate_left_24" />
-
-        <com.jsibbold.zoomage.ZoomageView
-            android:id="@+id/mapImage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/todo"
-            tools:ignore="ImageContrastCheck" />
 
         <TextView
             android:id="@+id/textDebug"
