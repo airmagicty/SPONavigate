@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     MapLoader loaderMap;
 
     private int rotate = 0;
-    private int mapBegin = 3, mapEnd = 21, mapFloor = 3;
+    private int mapBegin = 3, mapEnd = 1, mapFloor = 3;
 
     @SuppressLint("MissingInflatedId")
     @Override
