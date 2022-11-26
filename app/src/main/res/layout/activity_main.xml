@@ -46,7 +46,8 @@
             android:layout_weight="1"
             android:backgroundTint="#2B2B2B"
             android:focusableInTouchMode="false"
-            android:src="@drawable/ic_baseline_directions_walk_24" />
+            android:src="@drawable/ic_baseline_directions_walk_24"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <LinearLayout
             android:layout_width="100dp"
@@ -90,44 +91,48 @@
 
         <ImageButton
             android:id="@+id/buttonR"
-            android:layout_width="48dp"
-            android:layout_height="wrap_content"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:backgroundTint="#2B2B2B"
             android:minHeight="48dp"
-            app:srcCompat="@drawable/ic_baseline_rotate_right_24" />
+            app:srcCompat="@drawable/ic_baseline_rotate_right_24"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
             android:id="@+id/buttonD"
-            android:layout_width="48dp"
-            android:layout_height="wrap_content"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_below="@+id/buttonU"
             android:layout_alignParentRight="true"
             android:backgroundTint="#2B2B2B"
             android:minHeight="48dp"
-            app:srcCompat="@drawable/ic_baseline_arrow_downward_24" />
+            app:srcCompat="@drawable/ic_baseline_arrow_downward_24"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
             android:id="@+id/buttonU"
-            android:layout_width="48dp"
-            android:layout_height="wrap_content"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_marginTop="280dp"
             android:backgroundTint="#2B2B2B"
             android:minHeight="48dp"
-            app:srcCompat="@drawable/ic_baseline_arrow_upward_24" />
+            app:srcCompat="@drawable/ic_baseline_arrow_upward_24"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
             android:id="@+id/buttonL"
-            android:layout_width="48dp"
-            android:layout_height="wrap_content"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
             android:backgroundTint="#2B2B2B"
             android:minHeight="48dp"
-            app:srcCompat="@drawable/ic_baseline_rotate_left_24" />
+            app:srcCompat="@drawable/ic_baseline_rotate_left_24"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/textDebug"
