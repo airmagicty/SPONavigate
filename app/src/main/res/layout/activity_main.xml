@@ -13,36 +13,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:minHeight="60dp"
-        android:orientation="horizontal">
+        android:minHeight="60dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical">
-
-            <Spinner
-                android:id="@+id/spinner3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:entries="@array/namespath"
-                android:prompt="@string/begspinnerstr"
-                android:spinnerMode="dialog" />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/begspinnerstr" />
-        </LinearLayout>
+            android:orientation="vertical"></LinearLayout>
 
         <ImageButton
             android:id="@+id/buttonMap"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:backgroundTint="#2B2B2B"
             android:focusableInTouchMode="false"
@@ -53,27 +36,7 @@
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical">
-
-            <Spinner
-                android:id="@+id/spinnerEnd"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:contentDescription="@string/endspinnerstr"
-                android:dropDownSelector="@color/purple_200"
-                android:entries="@array/namespath"
-                android:prompt="@string/endspinnerstr"
-                android:spinnerMode="dialog"
-                tools:ignore="DuplicateSpeakableTextCheck" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/endspinnerstr" />
-        </LinearLayout>
+            android:orientation="vertical"></LinearLayout>
 
     </LinearLayout>
 
