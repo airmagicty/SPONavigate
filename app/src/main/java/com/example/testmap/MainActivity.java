@@ -64,23 +64,15 @@ public class MainActivity extends AppCompatActivity {
         loaderMap = new MapDrawer(this, map, mapImage, mapBegin, mapEnd, mapFloor);
         loaderMap.execute();
 
-        textDebug.setText("fl="+mapFloor+" b="+mapBegin+" e="+mapEnd);
+//        textDebug.setText("fl="+mapFloor+" b="+mapBegin+" e="+mapEnd);
     }
 
     private void spinnerInitialization () {
         ArrayList<String> arraySpinner = new ArrayList<>();
-        arraySpinner.add("Test1");
-        arraySpinner.add("Test2");
-        arraySpinner.add("Test3");
 
-//        for (int i = 1; i < 100; i++) {
-//            assert loaderMap != null;
-//            if (loaderMap.mapPoints.get(i) != null) {
-//                if (!Objects.requireNonNull(loaderMap.mapPoints.get(i)).spinnerlist)
-//                    continue;
-//                arraySpinner.add(Objects.requireNonNull(loaderMap.mapPoints.get(i)).name);
-//            }
-//        }
+        for (int i = 0; i < map.spinners.size(); i++) {
+            arraySpinner.add(map.spinners.get(i).name);
+        }
 
         ArrayAdapter<String> arraySpinnerAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, arraySpinner);
@@ -93,12 +85,32 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
                 // показываем позиция нажатого элемента
-                Toast.makeText(getBaseContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getBaseContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
+                mapBegin = map.spinners.get(position).id;
             }
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
             }
         });
+
+        eSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                // показываем позиция нажатого элемента
+                //Toast.makeText(getBaseContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
+                mapEnd = map.spinners.get(position).id;
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
+    }
+
+    public void saveMap (MapContainer map) {
+        this.map = map;
+        generateNewMap(); // отрисовка карты
+        spinnerInitialization(); // инициализация массива для спиннеров
     }
 
     // Кнопка построения маршрута
@@ -110,16 +122,24 @@ public class MainActivity extends AppCompatActivity {
     private void floorUp (View view) {
         if (mapFloor < 3) {
             mapFloor = mapFloor+1;
+            generateNewMap();
         }
-        generateNewMap();
+        if (mapFloor >= 3) {
+            buttonU.setEnabled(false);
+            buttonD.setEnabled(true);
+        }
     }
 
     // Этаж ниже
     private void floorDown (View view) {
         if (mapFloor > 1) {
             mapFloor = mapFloor-1;
+            generateNewMap();
         }
-        generateNewMap();
+        if (mapFloor <= 1) {
+            buttonU.setEnabled(true);
+            buttonD.setEnabled(false);
+        }
     }
 
     // Функция поворота Image вправо
@@ -140,11 +160,5 @@ public class MainActivity extends AppCompatActivity {
             rotate = 0;
         }
         mapImage.animate().rotation(rotate);
-    }
-
-    public void saveMap (MapContainer map) {
-        this.map = map;
-        generateNewMap(); // отрисовка карты
-        spinnerInitialization(); // инициализация массива для спиннеров
     }
 }

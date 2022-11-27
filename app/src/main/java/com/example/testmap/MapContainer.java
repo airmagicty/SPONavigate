@@ -22,10 +22,12 @@ import java.util.Objects;
 public class MapContainer {
     public Map<Integer, MapPoint> mapPoints;
     public List<Route> routes;
+    public List<ListSpinner> spinners;
 
     public void loadData(Context context) {
         mapPoints = loadSourceRaw_data_vectors(context); // загрузка карты из json
         routes = loadSourceRaw_data_map(context); // загрузка пути из json
+        spinners = loadSourceRaw_data_spinner(context);
     }
 
     private Map<Integer, MapPoint> loadSourceRaw_data_vectors (Context context) {
@@ -50,6 +52,20 @@ public class MapContainer {
             List<Route> routes = new Gson().fromJson(reader, mapType);
             reader.close();
             return routes;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private List<ListSpinner> loadSourceRaw_data_spinner (Context context) {
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(
+                    context.getResources().openRawResource(R.raw.data_spinner)));
+            Type mapType = new TypeToken<List<ListSpinner>>() {}.getType();
+            List<ListSpinner> spinners = new Gson().fromJson(reader, mapType);
+            reader.close();
+            return spinners;
         } catch (IOException e) {
             e.printStackTrace();
             return null;

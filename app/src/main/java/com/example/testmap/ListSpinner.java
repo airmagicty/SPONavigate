@@ -6,5 +6,5 @@ public class ListSpinner {
     @SerializedName("id")
     public int id;
     @SerializedName("name")
-    public int name;
+    public String name;
 }

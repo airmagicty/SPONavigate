@@ -20,12 +20,13 @@
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <Spinner
                 android:id="@+id/bSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:contentDescription="@string/begspinnerstr"
                 android:minHeight="24dp" />
         </LinearLayout>
 
@@ -45,12 +46,13 @@
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <Spinner
                 android:id="@+id/eSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:contentDescription="@string/endspinnerstr"
                 android:minHeight="24dp" />
         </LinearLayout>
 
@@ -117,7 +119,9 @@
             android:id="@+id/textDebug"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/todo" />
+            android:text="@string/todo"
+            android:textColor="#7C0000"
+            android:visibility="invisible" />
 
     </RelativeLayout>
 

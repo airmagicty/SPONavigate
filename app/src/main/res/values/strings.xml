@@ -9,33 +9,4 @@
     <string name="d">D</string>
     <string name="begspinnerstr">Откуда</string>
     <string name="endspinnerstr">Куда</string>
-
-    <string-array name="namespath">
-        <item>24</item>
-        <item>23</item>
-        <item>21</item>
-        <item>20</item>
-        <item>19</item>
-        <item>18</item>
-        <item>17</item>
-        <item>16</item>
-        <item>15</item>
-        <item>14</item>
-        <item>13</item>
-        <item>12</item>
-        <item>11</item>
-        <item>10</item>
-        <item>8</item>
-        <item>9</item>
-        <item>2</item>
-        <item>Методический кабинет</item>
-        <item>Зам.директора по УВР</item>
-        <item>Директор</item>
-        <item>Приёмная</item>
-        <item>Зам по УР</item>
-        <item>Психолог</item>
-        <item>Гардероб</item>
-        <item>Ж туалет</item>
-        <item>М туалет</item>
-    </string-array>
 </resources>
