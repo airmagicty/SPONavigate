@@ -6,6 +6,7 @@
 			1111
 		],
 		"floor": 3,
+		"spinnerlist": true,
 		"route": [
 			318
 		]
@@ -17,6 +18,7 @@
 			1495
 		],
 		"floor": 3,
+		"spinnerlist": true,
 		"route": [
 			319
 		]
@@ -28,6 +30,7 @@
 			2000
 		],
 		"floor": 3,
+		"spinnerlist": true,
 		"route": [
 			316
 		]
@@ -39,6 +42,7 @@
 			1975
 		],
 		"floor": 3,
+		"spinnerlist": true,
 		"route": [
 			317
 		]
@@ -50,6 +54,7 @@
 			1468
 		],
 		"floor": 3,
+		"spinnerlist": true,
 		"route": [
 			315
 		]
@@ -61,6 +66,7 @@
 			1212
 		],
 		"floor": 3,
+		"spinnerlist": true,
 		"route": [
 			314
 		]
@@ -72,6 +78,7 @@
 			436
 		],
 		"floor": 3,
+		"spinnerlist": true,
 		"route": [
 			305
 		]
@@ -83,6 +90,7 @@
 			370
 		],
 		"floor": 3,
+		"spinnerlist": true,
 		"route": [
 			301
 		]
@@ -94,6 +102,7 @@
 			757
 		],
 		"floor": 3,
+		"spinnerlist": true,
 		"route": [
 			304
 		]
@@ -105,6 +114,7 @@
 			584
 		],
 		"floor": 3,
+		"spinnerlist": true,
 		"route": [
 			302,
 			303
@@ -117,6 +127,7 @@
 			859
 		],
 		"floor": 3,
+		"spinnerlist": true,
 		"route": [
 			308
 		]
@@ -128,6 +139,7 @@
 			1715
 		],
 		"floor": 3,
+		"spinnerlist": true,
 		"route": [
 			313,
 			316
@@ -140,6 +152,7 @@
 			1751
 		],
 		"floor": 3,
+		"spinnerlist": true,
 		"route": [
 			313,
 			20
@@ -152,6 +165,7 @@
 			551
 		],
 		"floor": 2,
+		"spinnerlist": true,
 		"route": [
 			205
 		]
@@ -163,6 +177,7 @@
 			1026
 		],
 		"floor": 2,
+		"spinnerlist": true,
 		"route": [
 			204
 		]
@@ -174,6 +189,7 @@
 			1436
 		],
 		"floor": 2,
+		"spinnerlist": true,
 		"route": [
 			203
 		]
@@ -185,6 +201,7 @@
 			1711
 		],
 		"floor": 2,
+		"spinnerlist": true,
 		"route": [
 			225,
 			226,
@@ -199,6 +216,7 @@
 			2093
 		],
 		"floor": 2,
+		"spinnerlist": true,
 		"route": [
 			202
 		]
@@ -210,6 +228,7 @@
 			2029
 		],
 		"floor": 2,
+		"spinnerlist": true,
 		"route": [
 			201
 		]
@@ -221,6 +240,7 @@
 			1753
 		],
 		"floor": 2,
+		"spinnerlist": true,
 		"route": [
 			213,
 			13
@@ -233,6 +253,7 @@
 			819
 		],
 		"floor": 2,
+		"spinnerlist": true,
 		"route": [
 			212
 		]
@@ -244,6 +265,7 @@
 			1492
 		],
 		"floor": 2,
+		"spinnerlist": true,
 		"route": [
 			209
 		]
@@ -255,6 +277,7 @@
 			69
 		],
 		"floor": 2,
+		"spinnerlist": true,
 		"route": [
 			207
 		]
@@ -266,6 +289,7 @@
 			452
 		],
 		"floor": 2,
+		"spinnerlist": true,
 		"route": [
 			206
 		]
@@ -277,6 +301,7 @@
 			72
 		],
 		"floor": 2,
+		"spinnerlist": true,
 		"route": [
 			208
 		]
@@ -288,6 +313,7 @@
 			1032
 		],
 		"floor": 2,
+		"spinnerlist": true,
 		"route": [
 			220
 		]
@@ -299,6 +325,7 @@
 			1143
 		],
 		"floor": 2,
+		"spinnerlist": true,
 		"route": [
 			221
 		]
@@ -310,6 +337,7 @@
 			1320
 		],
 		"floor": 2,
+		"spinnerlist": true,
 		"route": [
 			223
 		]
@@ -321,6 +349,7 @@
 			477
 		],
 		"floor": 1,
+		"spinnerlist": true,
 		"route": [
 			101
 		]
@@ -332,6 +361,7 @@
 			469
 		],
 		"floor": 1,
+		"spinnerlist": true,
 		"route": [
 			102
 		]
@@ -343,6 +373,7 @@
 			838
 		],
 		"floor": 1,
+		"spinnerlist": true,
 		"route": [
 			103
 		]
@@ -354,6 +385,7 @@
 			775
 		],
 		"floor": 1,
+		"spinnerlist": true,
 		"route": [
 			104
 		]
@@ -365,6 +397,7 @@
 			1240
 		],
 		"floor": 1,
+		"spinnerlist": true,
 		"route": [
 			108
 		]
@@ -376,6 +409,7 @@
 			1650
 		],
 		"floor": 1,
+		"spinnerlist": true,
 		"route": [
 			109,
 			110,
@@ -391,6 +425,7 @@
 			947
 		],
 		"floor": 1,
+		"spinnerlist": true,
 		"route": [
 			105
 		]
@@ -402,6 +437,7 @@
 			1117
 		],
 		"floor": 1,
+		"spinnerlist": true,
 		"route": [
 			107
 		]
@@ -413,6 +449,7 @@
 			2141
 		],
 		"floor": 1,
+		"spinnerlist": true,
 		"route": [
 			112
 		]
@@ -424,6 +461,7 @@
 			2206
 		],
 		"floor": 1,
+		"spinnerlist": true,
 		"route": [
 			111
 		]
@@ -435,6 +473,7 @@
 			2082
 		],
 		"floor": 1,
+		"spinnerlist": true,
 		"route": [
 			110
 		]
@@ -446,6 +485,7 @@
 			1624
 		],
 		"floor": 1,
+		"spinnerlist": true,
 		"route": [
 			113,
 			20
@@ -458,6 +498,7 @@
 			1033
 		],
 		"floor": 1,
+		"spinnerlist": true,
 		"route": [
 			106
 		]
@@ -469,6 +510,7 @@
 			464
 		],
 		"floor": 3,
+		"spinnerlist": false,
 		"route": [
 			10,
 			8,
@@ -482,6 +524,7 @@
 			592
 		],
 		"floor": 3,
+		"spinnerlist": false,
 		"route": [
 			10,
 			301,
@@ -495,6 +538,7 @@
 			604
 		],
 		"floor": 3,
+		"spinnerlist": false,
 		"route": [
 			10,
 			302,
@@ -508,6 +552,7 @@
 			690
 		],
 		"floor": 3,
+		"spinnerlist": false,
 		"route": [
 			9,
 			302
@@ -520,6 +565,7 @@
 			607
 		],
 		"floor": 3,
+		"spinnerlist": false,
 		"route": [
 			307,
 			7
@@ -532,6 +578,7 @@
 			755
 		],
 		"floor": 3,
+		"spinnerlist": false,
 		"route": [
 			303,
 			307
@@ -544,6 +591,7 @@
 			765
 		],
 		"floor": 3,
+		"spinnerlist": false,
 		"route": [
 			306,
 			305,
@@ -557,6 +605,7 @@
 			859
 		],
 		"floor": 3,
+		"spinnerlist": false,
 		"route": [
 			307,
 			309,
@@ -571,6 +620,7 @@
 			1185
 		],
 		"floor": 3,
+		"spinnerlist": false,
 		"route": [
 			308,
 			310,
@@ -584,6 +634,7 @@
 			1264
 		],
 		"floor": 3,
+		"spinnerlist": false,
 		"route": [
 			309,
 			311,
@@ -597,6 +648,7 @@
 			1352
 		],
 		"floor": 3,
+		"spinnerlist": false,
 		"route": [
 			310,
 			312,
@@ -610,6 +662,7 @@
 			1459
 		],
 		"floor": 3,
+		"spinnerlist": false,
 		"route": [
 			311,
 			313,
@@ -623,6 +676,7 @@
 			1778
 		],
 		"floor": 3,
+		"spinnerlist": false,
 		"route": [
 			317,
 			312,
@@ -637,6 +691,7 @@
 			1182
 		],
 		"floor": 3,
+		"spinnerlist": false,
 		"route": [
 			309,
 			6
@@ -649,6 +704,7 @@
 			1357
 		],
 		"floor": 3,
+		"spinnerlist": false,
 		"route": [
 			5,
 			311
@@ -661,6 +717,7 @@
 			1865
 		],
 		"floor": 3,
+		"spinnerlist": false,
 		"route": [
 			3,
 			12
@@ -673,6 +730,7 @@
 			1882
 		],
 		"floor": 3,
+		"spinnerlist": false,
 		"route": [
 			313,
 			4
@@ -685,6 +743,7 @@
 			1264
 		],
 		"floor": 3,
+		"spinnerlist": false,
 		"route": [
 			310,
 			1
@@ -697,6 +756,7 @@
 			1465
 		],
 		"floor": 3,
+		"spinnerlist": false,
 		"route": [
 			2,
 			312
@@ -709,6 +769,7 @@
 			1954
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			19,
 			226
@@ -721,6 +782,7 @@
 			845
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			18,
 			227
@@ -733,6 +795,7 @@
 			1536
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			16,
 			224
@@ -745,6 +808,7 @@
 			1171
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			15,
 			222
@@ -757,6 +821,7 @@
 			658
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			14,
 			218
@@ -769,6 +834,7 @@
 			363
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			24,
 			217
@@ -781,6 +847,7 @@
 			76
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			23,
 			215
@@ -793,6 +860,7 @@
 			83
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			25,
 			214
@@ -805,6 +873,7 @@
 			1543
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			22,
 			224
@@ -817,6 +886,7 @@
 			834
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			21,
 			219
@@ -829,6 +899,7 @@
 			1749
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			20,
 			226,
@@ -843,6 +914,7 @@
 			170
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			208,
 			215
@@ -855,6 +927,7 @@
 			159
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			214,
 			216,
@@ -868,6 +941,7 @@
 			177
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			215,
 			217
@@ -880,6 +954,7 @@
 			361
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			216,
 			218,
@@ -893,6 +968,7 @@
 			655
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			217,
 			205,
@@ -906,6 +982,7 @@
 			832
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			212,
 			218,
@@ -919,6 +996,7 @@
 			1032
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			219,
 			221,
@@ -932,6 +1010,7 @@
 			1150
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			220,
 			222,
@@ -945,6 +1024,7 @@
 			1174
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			221,
 			204,
@@ -958,6 +1038,7 @@
 			1320
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			42,
 			222,
@@ -971,6 +1052,7 @@
 			1536
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			223,
 			225,
@@ -985,6 +1067,7 @@
 			1708
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			224,
 			17,
@@ -1000,6 +1083,7 @@
 			1785
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			201,
 			213,
@@ -1015,6 +1099,7 @@
 			1788
 		],
 		"floor": 2,
+		"spinnerlist": false,
 		"route": [
 			202,
 			226,
@@ -1030,6 +1115,7 @@
 			609
 		],
 		"floor": 1,
+		"spinnerlist": false,
 		"route": [
 			27,
 			104
@@ -1042,6 +1128,7 @@
 			613
 		],
 		"floor": 1,
+		"spinnerlist": false,
 		"route": [
 			103,
 			28
@@ -1054,6 +1141,7 @@
 			781
 		],
 		"floor": 1,
+		"spinnerlist": false,
 		"route": [
 			29,
 			102,
@@ -1067,6 +1155,7 @@
 			772
 		],
 		"floor": 1,
+		"spinnerlist": false,
 		"route": [
 			101,
 			105,
@@ -1081,6 +1170,7 @@
 			944
 		],
 		"floor": 1,
+		"spinnerlist": false,
 		"route": [
 			106,
 			104,
@@ -1094,6 +1184,7 @@
 			1026
 		],
 		"floor": 1,
+		"spinnerlist": false,
 		"route": [
 			105,
 			107,
@@ -1107,6 +1198,7 @@
 			1113
 		],
 		"floor": 1,
+		"spinnerlist": false,
 		"route": [
 			106,
 			34,
@@ -1120,6 +1212,7 @@
 			1237
 		],
 		"floor": 1,
+		"spinnerlist": false,
 		"route": [
 			107,
 			109,
@@ -1133,6 +1226,7 @@
 			1314
 		],
 		"floor": 1,
+		"spinnerlist": false,
 		"route": [
 			108,
 			32
@@ -1145,6 +1239,7 @@
 			1960
 		],
 		"floor": 1,
+		"spinnerlist": false,
 		"route": [
 			37,
 			113,
@@ -1159,6 +1254,7 @@
 			1967
 		],
 		"floor": 1,
+		"spinnerlist": false,
 		"route": [
 			36,
 			110,
@@ -1174,6 +1270,7 @@
 			1967
 		],
 		"floor": 1,
+		"spinnerlist": false,
 		"route": [
 			35,
 			111,
@@ -1188,6 +1285,7 @@
 			1736
 		],
 		"floor": 1,
+		"spinnerlist": false,
 		"route": [
 			38,
 			32,

@@ -25,7 +25,7 @@ import java.util.Objects;
 
 // Оптимизация рассчетов
 public class MapLoader extends AsyncTask<Void, Void, Void> {
-    private static final String LOG_TAG = "MapLoader";
+    private static final String LOG_TAG = "DebugMapLoader";
     // получение ресурсов
     @SuppressLint("StaticFieldLeak")
     Context context;
@@ -36,8 +36,8 @@ public class MapLoader extends AsyncTask<Void, Void, Void> {
 
     private Bitmap bitmapPlace;
     private Paint mPaint;
-    private Map<Integer, MapPoint> mapPoints;
-    private List<Route> routes;
+    public Map<Integer, MapPoint> mapPoints;
+    public List<Route> routes;
 
     public MapLoader(Context context, ImageView mapImage, Integer mapBegin, Integer mapEnd, Integer mapFloor) {
         this.context = context;
@@ -79,7 +79,7 @@ public class MapLoader extends AsyncTask<Void, Void, Void> {
         mapImage.setImageBitmap(bitmapPlace);
     }
 
-    private Map<Integer, MapPoint> loadSourceRaw_data_vectors () {
+    public Map<Integer, MapPoint> loadSourceRaw_data_vectors () {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(
                     context.getResources().openRawResource(R.raw.data_vectors)));
@@ -93,7 +93,7 @@ public class MapLoader extends AsyncTask<Void, Void, Void> {
         }
     }
 
-    private List<Route> loadSourceRaw_data_map () {
+    public List<Route> loadSourceRaw_data_map () {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(
                     context.getResources().openRawResource(R.raw.data_map)));

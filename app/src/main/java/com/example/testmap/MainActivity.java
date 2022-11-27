@@ -10,10 +10,11 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String LOG_TAG = "DebugMainActivity";
 
     private ImageButton buttonMap, buttonU, buttonD, buttonR, buttonL;
     private ImageView mapImage;
@@ -33,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mapImage = findViewById(R.id.mapImage);
-
         buttonMap = findViewById(R.id.buttonMap);
         buttonR = findViewById(R.id.buttonR);
         buttonL = findViewById(R.id.buttonL);
@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         buttonD = findViewById(R.id.buttonD);
         bSpinner = findViewById(R.id.bSpinner);
         eSpinner = findViewById(R.id.eSpinner);
-
         textDebug = findViewById(R.id.textDebug);
 
         buttonMap.setOnClickListener(this::newRoute);
@@ -50,24 +49,32 @@ public class MainActivity extends AppCompatActivity {
         buttonU.setOnClickListener(this::floorUp);
         buttonD.setOnClickListener(this::floorDown);
 
-        mapImage.setImageResource(R.drawable.h1);
+        generateNewMap(); // Стартовая инициализация карты
+//        spinnerInitialization(); // инициализация массива для спиннеров
     }
 
-    private void generateNewRoute() {
-        spinnerInitialization(); // инициализация массива для спиннеров
-
+    private void generateNewMap() {
         loaderMap = new MapLoader(this, mapImage, mapBegin, mapEnd, mapFloor);
         loaderMap.execute();
+
         textDebug.setText("fl="+mapFloor+" b="+mapBegin+" e="+mapEnd);
     }
 
     private void spinnerInitialization () {
-        arraySpinner.add(1,"1");
+//        for (int i = 1; i < 100; i++) {
+//            assert loaderMap != null;
+//            if (loaderMap.mapPoints.get(i).spinnerlist == false)
+//                continue;
+//            arraySpinner.add(i, loaderMap.mapPoints.get(i).name);
+//        }
+//        arraySpinner.add(1, "loaderMap.mapPoints.get(1).name");
     }
 
     // Кнопка построения маршрута
     private void newRoute (View view) {
-        generateNewRoute();
+//        mapBegin = 1;
+//        mapEnd = 2;
+        generateNewMap();
     }
 
     // Этаж выше
@@ -75,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         if (mapFloor < 3) {
             mapFloor = mapFloor+1;
         }
-        generateNewRoute();
+        generateNewMap();
     }
 
     // Этаж ниже
@@ -83,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         if (mapFloor > 1) {
             mapFloor = mapFloor-1;
         }
-        generateNewRoute();
+        generateNewMap();
     }
 
     // Функция поворота Image вправо

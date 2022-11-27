@@ -9,6 +9,8 @@ public class MapPoint {
     public List<Integer> pos;
     @SerializedName("floor")
     public int floor;
+    @SerializedName("spinnerlist")
+    public boolean spinnerlist;
     @SerializedName("route")
     public List<Integer> route;
 }
