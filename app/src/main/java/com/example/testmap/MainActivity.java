@@ -13,18 +13,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = "DebugMainActivity";
@@ -34,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView textDebug;
     private Spinner bSpinner, eSpinner;
 
-    MapLoader loaderMap;
+    MapDrawer loaderMap;
+    public MapContainer map;
 
     private int rotate = 0;
     private int mapBegin, mapEnd, mapFloor = 1;
@@ -62,12 +52,16 @@ public class MainActivity extends AppCompatActivity {
         buttonU.setOnClickListener(this::floorUp);
         buttonD.setOnClickListener(this::floorDown);
 
-        generateNewMap(); // Стартовая инициализация карты
-        spinnerInitialization(); // инициализация массива для спиннеров
+        loadNewMap(); // Стартовая инициализация карты
+    }
+
+    private void loadNewMap() {
+        MapLoader loader = new MapLoader(this, this);
+        loader.execute();
     }
 
     private void generateNewMap() {
-        loaderMap = new MapLoader(this, mapImage, mapBegin, mapEnd, mapFloor);
+        loaderMap = new MapDrawer(this, map, mapImage, mapBegin, mapEnd, mapFloor);
         loaderMap.execute();
 
         textDebug.setText("fl="+mapFloor+" b="+mapBegin+" e="+mapEnd);
@@ -146,5 +140,11 @@ public class MainActivity extends AppCompatActivity {
             rotate = 0;
         }
         mapImage.animate().rotation(rotate);
+    }
+
+    public void saveMap (MapContainer map) {
+        this.map = map;
+        generateNewMap(); // отрисовка карты
+        spinnerInitialization(); // инициализация массива для спиннеров
     }
 }
