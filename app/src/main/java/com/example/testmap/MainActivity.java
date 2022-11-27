@@ -5,14 +5,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -52,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         buttonD.setOnClickListener(this::floorDown);
 
         generateNewMap(); // Стартовая инициализация карты
-//        spinnerInitialization(); // инициализация массива для спиннеров
+        spinnerInitialization(); // инициализация массива для спиннеров
     }
 
     private void generateNewMap() {
@@ -63,7 +74,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void spinnerInitialization () {
-        String[] arraySpinner = {"Toyota","BMW","Audi"};
+        ArrayList<String> arraySpinner = new ArrayList<>();
+        arraySpinner.add("Test1");
+        arraySpinner.add("Test2");
+        arraySpinner.add("Test3");
+
 //        for (int i = 1; i < 100; i++) {
 //            assert loaderMap != null;
 //            if (loaderMap.mapPoints.get(i) != null) {
@@ -72,19 +87,29 @@ public class MainActivity extends AppCompatActivity {
 //                arraySpinner.add(Objects.requireNonNull(loaderMap.mapPoints.get(i)).name);
 //            }
 //        }
+
         ArrayAdapter<String> arraySpinnerAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, arraySpinner);
         arraySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         bSpinner.setAdapter(arraySpinnerAdapter);
         eSpinner.setAdapter(arraySpinnerAdapter);
+
+        bSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                // показываем позиция нажатого элемента
+                Toast.makeText(getBaseContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
     }
 
     // Кнопка построения маршрута
     private void newRoute (View view) {
-//        mapBegin = 1;
-//        mapEnd = 2;
-        spinnerInitialization(); // инициализация массива для спиннеров
-//        generateNewMap();
+        generateNewMap();
     }
 
     // Этаж выше

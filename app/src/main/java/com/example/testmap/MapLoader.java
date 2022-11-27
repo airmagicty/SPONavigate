@@ -79,7 +79,7 @@ public class MapLoader extends AsyncTask<Void, Void, Void> {
         mapImage.setImageBitmap(bitmapPlace);
     }
 
-    public Map<Integer, MapPoint> loadSourceRaw_data_vectors () {
+    private Map<Integer, MapPoint> loadSourceRaw_data_vectors () {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(
                     context.getResources().openRawResource(R.raw.data_vectors)));
@@ -93,7 +93,7 @@ public class MapLoader extends AsyncTask<Void, Void, Void> {
         }
     }
 
-    public List<Route> loadSourceRaw_data_map () {
+    private List<Route> loadSourceRaw_data_map () {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(
                     context.getResources().openRawResource(R.raw.data_map)));
