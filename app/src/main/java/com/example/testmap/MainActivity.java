@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
     private int rotate = 0;
     private int mapBegin, mapEnd, mapFloor = 1;
-    private ArrayList<String> arraySpinner = new ArrayList<>();
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         buttonD = findViewById(R.id.buttonD);
         bSpinner = findViewById(R.id.bSpinner);
         eSpinner = findViewById(R.id.eSpinner);
+
         textDebug = findViewById(R.id.textDebug);
 
         buttonMap.setOnClickListener(this::newRoute);
@@ -51,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
 
         generateNewMap(); // Стартовая инициализация карты
 //        spinnerInitialization(); // инициализация массива для спиннеров
-        //test1
     }
 
     private void generateNewMap() {
@@ -62,20 +63,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void spinnerInitialization () {
+        String[] arraySpinner = {"Toyota","BMW","Audi"};
 //        for (int i = 1; i < 100; i++) {
 //            assert loaderMap != null;
-//            if (loaderMap.mapPoints.get(i).spinnerlist == false)
-//                continue;
-//            arraySpinner.add(i, loaderMap.mapPoints.get(i).name);
+//            if (loaderMap.mapPoints.get(i) != null) {
+//                if (!Objects.requireNonNull(loaderMap.mapPoints.get(i)).spinnerlist)
+//                    continue;
+//                arraySpinner.add(Objects.requireNonNull(loaderMap.mapPoints.get(i)).name);
+//            }
 //        }
-//        arraySpinner.add(1, "loaderMap.mapPoints.get(1).name");
+        ArrayAdapter<String> arraySpinnerAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, arraySpinner);
+        arraySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        bSpinner.setAdapter(arraySpinnerAdapter);
+        eSpinner.setAdapter(arraySpinnerAdapter);
     }
 
     // Кнопка построения маршрута
     private void newRoute (View view) {
 //        mapBegin = 1;
 //        mapEnd = 2;
-        generateNewMap();
+        spinnerInitialization(); // инициализация массива для спиннеров
+//        generateNewMap();
     }
 
     // Этаж выше
