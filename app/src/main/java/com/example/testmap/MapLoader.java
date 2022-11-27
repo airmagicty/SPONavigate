@@ -110,6 +110,7 @@ public class MapLoader extends AsyncTask<Void, Void, Void> {
         List<Integer> routelist = new ArrayList<Integer>();
 
         // поиск path в mapPathes по полям (beg = mapBegin && end = mapEnd)
+        if (mapBegin != mapEnd)
         for (int i = 0; i < routes.size(); i++) {
             Route buffGetI = routes.get(i);
             if (buffGetI.beg == mapBegin && buffGetI.end == mapEnd) {
@@ -140,32 +141,34 @@ public class MapLoader extends AsyncTask<Void, Void, Void> {
         Canvas bitmapPlaceDraw = new Canvas(bitmapPlace); // создаем канвас для рисования
 
         // рисовать по List
-        initPaint(); // описываем кисть
-        int srcW = bitmapPlace.getWidth();
-        int srcH = bitmapPlace.getHeight();
-        int dstW = bitmapPlaceDraw.getWidth();
-        int dstH = bitmapPlaceDraw.getHeight();
+        if (mapBegin != mapEnd) {
+            initPaint(); // описываем кисть
+            int srcW = bitmapPlace.getWidth();
+            int srcH = bitmapPlace.getHeight();
+            int dstW = bitmapPlaceDraw.getWidth();
+            int dstH = bitmapPlaceDraw.getHeight();
 
-        for (int i = 1; i < routelist.size(); i++) {
-            MapPoint buffGetB = mapPoints.get(routelist.get(i-1));
-            MapPoint buffGetE = mapPoints.get(routelist.get(i));
+            for (int i = 1; i < routelist.size(); i++) {
+                MapPoint buffGetB = mapPoints.get(routelist.get(i-1));
+                MapPoint buffGetE = mapPoints.get(routelist.get(i));
 
-            if (buffGetE == null || buffGetB == null)
-                continue;
+                if (buffGetE == null || buffGetB == null)
+                    continue;
 
-            if (buffGetE.floor != mapFloor)
-                continue;
+                if (buffGetE.floor != mapFloor)
+                    continue;
 
-            // рисуем из предыдущего в следующий линию
-            int bPosAx = buffGetB.pos.get(0) * dstW / srcW;
-            int bPosAy = buffGetB.pos.get(1) * dstH / srcH;
-            int ePosAx = buffGetE.pos.get(0) * dstW / srcW;
-            int ePosAy = buffGetE.pos.get(1) * dstH / srcH;
-            bitmapPlaceDraw.drawLine(
-                    bPosAx, bPosAy,
-                    ePosAx, ePosAy,
-                    mPaint
-            );
+                // рисуем из предыдущего в следующий линию
+                int bPosAx = buffGetB.pos.get(0) * dstW / srcW;
+                int bPosAy = buffGetB.pos.get(1) * dstH / srcH;
+                int ePosAx = buffGetE.pos.get(0) * dstW / srcW;
+                int ePosAy = buffGetE.pos.get(1) * dstH / srcH;
+                bitmapPlaceDraw.drawLine(
+                        bPosAx, bPosAy,
+                        ePosAx, ePosAy,
+                        mPaint
+                );
+            }
         }
     }
 }

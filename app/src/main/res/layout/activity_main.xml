@@ -16,10 +16,18 @@
         android:minHeight="60dp">
 
         <LinearLayout
+            android:id="@+id/mInput"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical"></LinearLayout>
+            android:orientation="vertical" >
+
+            <Spinner
+                android:id="@+id/bSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="60dp" />
+        </LinearLayout>
 
         <ImageButton
             android:id="@+id/buttonMap"
@@ -33,10 +41,18 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
         <LinearLayout
+            android:id="@+id/mOutput"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical"></LinearLayout>
+            android:orientation="vertical" >
+
+            <Spinner
+                android:id="@+id/eSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="60dp" />
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -53,7 +69,7 @@
             tools:ignore="ImageContrastCheck" />
 
         <ImageButton
-            android:id="@+id/buttonR"
+            android:id="@+id/buttonL"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_alignParentRight="true"
@@ -87,7 +103,7 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
-            android:id="@+id/buttonL"
+            android:id="@+id/buttonR"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_alignParentLeft="true"

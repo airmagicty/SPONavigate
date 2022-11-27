@@ -4,17 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-//    private ScaleGestureDetector mScaleGestureDetector;
-//    private float mScaleFactor = 1.0f;
 
     private View map;
     private ImageButton buttonMap, buttonU, buttonD, buttonR, buttonL;
@@ -24,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     MapLoader loaderMap;
 
     private int rotate = 0;
-    private int mapBegin = 3, mapEnd = 1, mapFloor = 3;
+    private int mapBegin, mapEnd, mapFloor = 1;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -49,14 +44,12 @@ public class MainActivity extends AppCompatActivity {
         buttonU.setOnClickListener(this::floorUp);
         buttonD.setOnClickListener(this::floorDown);
 
-//        mScaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
+        mapImage.setImageResource(R.drawable.h1);
     }
 
     private void generateNewRoute() {
-        if (mapBegin != mapEnd) {
-            loaderMap = new MapLoader(this, mapImage, mapBegin, mapEnd, mapFloor);
-            loaderMap.execute();
-        }
+        loaderMap = new MapLoader(this, mapImage, mapBegin, mapEnd, mapFloor);
+        loaderMap.execute();
         textDebug.setText("fl="+mapFloor+" b="+mapBegin+" e="+mapEnd);
     }
 
@@ -100,22 +93,4 @@ public class MainActivity extends AppCompatActivity {
         }
         mapImage.animate().rotation(rotate);
     }
-
-//    // масштабирование
-//    public boolean onTouchEvent(MotionEvent motionEvent) {
-//        mScaleGestureDetector.onTouchEvent(motionEvent);
-//        return true;
-//    }
-//
-//    private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
-//        @Override
-//        public boolean onScale(ScaleGestureDetector scaleGestureDetector){
-//            mScaleFactor *= scaleGestureDetector.getScaleFactor();
-//            mScaleFactor = Math.max(0.1f, Math.min(mScaleFactor, 10.0f));
-//            map.setScaleX(mScaleFactor);
-//            map.setScaleY(mScaleFactor);
-//            return true;
-//        }
-//    }
-
 }
