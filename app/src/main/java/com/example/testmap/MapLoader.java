@@ -20,6 +20,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 
 // Оптимизация рассчетов
@@ -110,11 +111,12 @@ public class MapLoader extends AsyncTask<Void, Void, Void> {
         List<Integer> routelist = new ArrayList<Integer>();
 
         // поиск path в mapPathes по полям (beg = mapBegin && end = mapEnd)
-        if (mapBegin != mapEnd)
-        for (int i = 0; i < routes.size(); i++) {
-            Route buffGetI = routes.get(i);
-            if (buffGetI.beg == mapBegin && buffGetI.end == mapEnd) {
-                routelist = buffGetI.path;
+        if (!Objects.equals(mapBegin, mapEnd)) {
+            for (int i = 0; i < routes.size(); i++) {
+                Route buffGetI = routes.get(i);
+                if (buffGetI.beg == mapBegin && buffGetI.end == mapEnd) {
+                    routelist = buffGetI.path;
+                }
             }
         }
 //        Log.d(LOG_TAG, routelist.toString());
@@ -141,7 +143,7 @@ public class MapLoader extends AsyncTask<Void, Void, Void> {
         Canvas bitmapPlaceDraw = new Canvas(bitmapPlace); // создаем канвас для рисования
 
         // рисовать по List
-        if (mapBegin != mapEnd) {
+        if (!Objects.equals(mapBegin, mapEnd)) {
             initPaint(); // описываем кисть
             int srcW = bitmapPlace.getWidth();
             int srcH = bitmapPlace.getHeight();

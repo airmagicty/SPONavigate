@@ -7,19 +7,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.sql.Array;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private View map;
     private ImageButton buttonMap, buttonU, buttonD, buttonR, buttonL;
     private ImageView mapImage;
     private TextView textDebug;
+    private Spinner bSpinner, eSpinner;
 
     MapLoader loaderMap;
 
     private int rotate = 0;
     private int mapBegin, mapEnd, mapFloor = 1;
+    private ArrayList<String> arraySpinner = new ArrayList<>();
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -27,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        map = findViewById(R.id.map);
         mapImage = findViewById(R.id.mapImage);
 
         buttonMap = findViewById(R.id.buttonMap);
@@ -35,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         buttonL = findViewById(R.id.buttonL);
         buttonU = findViewById(R.id.buttonU);
         buttonD = findViewById(R.id.buttonD);
+        bSpinner = findViewById(R.id.bSpinner);
+        eSpinner = findViewById(R.id.eSpinner);
 
         textDebug = findViewById(R.id.textDebug);
 
@@ -48,18 +54,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void generateNewRoute() {
+        spinnerInitialization(); // инициализация массива для спиннеров
+
         loaderMap = new MapLoader(this, mapImage, mapBegin, mapEnd, mapFloor);
         loaderMap.execute();
         textDebug.setText("fl="+mapFloor+" b="+mapBegin+" e="+mapEnd);
     }
 
+    private void spinnerInitialization () {
+        arraySpinner.add(1,"1");
+    }
+
     // Кнопка построения маршрута
-    private void newRoute(View view) {
+    private void newRoute (View view) {
         generateNewRoute();
     }
 
     // Этаж выше
-    private void floorUp(View view) {
+    private void floorUp (View view) {
         if (mapFloor < 3) {
             mapFloor = mapFloor+1;
         }
@@ -67,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Этаж ниже
-    private void floorDown(View view) {
+    private void floorDown (View view) {
         if (mapFloor > 1) {
             mapFloor = mapFloor-1;
         }
@@ -75,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Функция поворота Image вправо
-    private void rotateMapRight(View view) {
+    private void rotateMapRight (View view) {
         if (rotate < 900000) {
             rotate -= 90;
         } else {
@@ -85,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Функция поворота Image влево
-    private void rotateMapLeft(View view) {
+    private void rotateMapLeft (View view) {
         if (rotate > -900000) {
             rotate += 90;
         } else {
