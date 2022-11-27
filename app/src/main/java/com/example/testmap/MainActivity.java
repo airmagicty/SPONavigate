@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         generateNewMap(); // Стартовая инициализация карты
 //        spinnerInitialization(); // инициализация массива для спиннеров
+        //test1
     }
 
     private void generateNewMap() {
