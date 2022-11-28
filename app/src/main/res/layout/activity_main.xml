@@ -88,6 +88,7 @@
             android:layout_below="@+id/buttonU"
             android:layout_alignParentRight="true"
             android:backgroundTint="#2B2B2B"
+            android:clickable="true"
             android:minHeight="48dp"
             app:srcCompat="@drawable/ic_baseline_arrow_downward_24"
             tools:ignore="SpeakableTextPresentCheck" />
@@ -100,6 +101,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="280dp"
             android:backgroundTint="#2B2B2B"
+            android:clickable="true"
             android:minHeight="48dp"
             app:srcCompat="@drawable/ic_baseline_arrow_upward_24"
             tools:ignore="SpeakableTextPresentCheck" />

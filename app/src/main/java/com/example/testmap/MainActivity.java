@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         buttonD.setOnClickListener(this::floorDown);
 
         loadNewMap(); // Стартовая инициализация карты
+        floorButtonVisible();
     }
 
     private void loadNewMap() {
@@ -124,10 +125,7 @@ public class MainActivity extends AppCompatActivity {
             mapFloor = mapFloor+1;
             generateNewMap();
         }
-        if (mapFloor >= 3) {
-            buttonU.setEnabled(false);
-            buttonD.setEnabled(true);
-        }
+        floorButtonVisible();
     }
 
     // Этаж ниже
@@ -136,9 +134,23 @@ public class MainActivity extends AppCompatActivity {
             mapFloor = mapFloor-1;
             generateNewMap();
         }
-        if (mapFloor <= 1) {
-            buttonU.setEnabled(true);
-            buttonD.setEnabled(false);
+        floorButtonVisible();
+    }
+
+    private void floorButtonVisible () {
+        switch (mapFloor) {
+            case 1:
+                buttonD.setVisibility(View.INVISIBLE);
+                buttonU.setVisibility(View.VISIBLE);
+                break;
+            case 2:
+                buttonD.setVisibility(View.VISIBLE);
+                buttonU.setVisibility(View.VISIBLE);
+                break;
+            case 3:
+                buttonD.setVisibility(View.VISIBLE);
+                buttonU.setVisibility(View.INVISIBLE);
+                break;
         }
     }
 
