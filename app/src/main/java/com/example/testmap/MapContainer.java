@@ -7,6 +7,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
+import androidx.annotation.ColorInt;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -110,12 +112,22 @@ public class MapContainer {
 
         // рисовать по List
         if (!Objects.equals(mapBegin, mapEnd)) {
-            initPaint(); // описываем кисть
             int srcW = bitmapPlace.getWidth();
             int srcH = bitmapPlace.getHeight();
             int dstW = bitmapPlaceDraw.getWidth();
             int dstH = bitmapPlaceDraw.getHeight();
 
+            // рисуем начало и конец
+
+            if (mapPoints.get(mapBegin).floor == mapFloor) {
+                bitmapPlaceDraw.drawCircle(mapPoints.get(mapBegin).pos.get(0), mapPoints.get(mapBegin).pos.get(1), 20, mPaint);
+            }
+
+            if (mapPoints.get(mapEnd).floor == mapFloor) {
+                bitmapPlaceDraw.drawCircle(mapPoints.get(mapEnd).pos.get(0), mapPoints.get(mapEnd).pos.get(1), 20, mPaint);
+            }
+
+            // идем по роутелисту и рисуем линии из начала в конец
             for (int i = 1; i < routelist.size(); i++) {
                 MapPoint buffGetB = mapPoints.get(routelist.get(i-1));
                 MapPoint buffGetE = mapPoints.get(routelist.get(i));
@@ -131,6 +143,8 @@ public class MapContainer {
                 int bPosAy = buffGetB.pos.get(1) * dstH / srcH;
                 int ePosAx = buffGetE.pos.get(0) * dstW / srcW;
                 int ePosAy = buffGetE.pos.get(1) * dstH / srcH;
+
+                // сама линия
                 bitmapPlaceDraw.drawLine(
                         bPosAx, bPosAy,
                         ePosAx, ePosAy,
@@ -145,6 +159,8 @@ public class MapContainer {
     private Paint initPaint() {
         Paint mPaint = new Paint();
         mPaint.setColor(Color.RED);
+        mPaint.setStrokeCap(Paint.Cap.ROUND);
+        mPaint.setAntiAlias(true);
         mPaint.setStrokeWidth(20);
         return mPaint;
     }

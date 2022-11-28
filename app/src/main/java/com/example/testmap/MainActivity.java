@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 // показываем позиция нажатого элемента
                 //Toast.makeText(getBaseContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
                 mapBegin = map.spinners.get(position).id;
+                mapFloor = map.mapPoints.get(mapBegin).floor;
             }
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
