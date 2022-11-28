@@ -103,6 +103,8 @@ public class MapContainer {
         }
 
         Paint mPaint = initPaint();
+        Paint ePaint = initPaintE();
+        Paint bPaint = initPaintB();
         BitmapFactory.Options opts = new BitmapFactory.Options();
         opts.inScaled = false;
         Bitmap bitmapPlace = BitmapFactory.decodeResource(
@@ -119,24 +121,19 @@ public class MapContainer {
 
             // рисуем начало и конец
 
-            if (mapPoints.get(mapBegin).floor == mapFloor) {
-                bitmapPlaceDraw.drawCircle(mapPoints.get(mapBegin).pos.get(0), mapPoints.get(mapBegin).pos.get(1), 20, mPaint);
-            }
-
-            if (mapPoints.get(mapEnd).floor == mapFloor) {
-                bitmapPlaceDraw.drawCircle(mapPoints.get(mapEnd).pos.get(0), mapPoints.get(mapEnd).pos.get(1), 20, mPaint);
-            }
 
             // идем по роутелисту и рисуем линии из начала в конец
             for (int i = 1; i < routelist.size(); i++) {
                 MapPoint buffGetB = mapPoints.get(routelist.get(i-1));
                 MapPoint buffGetE = mapPoints.get(routelist.get(i));
 
-                if (buffGetE == null || buffGetB == null)
+                if (buffGetE == null || buffGetB == null) {
                     continue;
+                }
 
-                if (buffGetE.floor != mapFloor)
+                if (buffGetE.floor != mapFloor) {
                     continue;
+                }
 
                 // рисуем из предыдущего в следующий линию
                 int bPosAx = buffGetB.pos.get(0) * dstW / srcW;
@@ -151,6 +148,13 @@ public class MapContainer {
                         mPaint
                 );
             }
+            if (mapPoints.get(mapBegin).floor == mapFloor) {
+                bitmapPlaceDraw.drawCircle(mapPoints.get(mapBegin).pos.get(0), mapPoints.get(mapBegin).pos.get(1), 20, bPaint);
+            }
+
+            if (mapPoints.get(mapEnd).floor == mapFloor) {
+                bitmapPlaceDraw.drawCircle(mapPoints.get(mapEnd).pos.get(0), mapPoints.get(mapEnd).pos.get(1), 20, ePaint);
+            }
         }
         return bitmapPlace;
     }
@@ -163,5 +167,28 @@ public class MapContainer {
         mPaint.setAntiAlias(true);
         mPaint.setStrokeWidth(20);
         return mPaint;
+
+    }
+
+    private Paint initPaintE() {
+        //        begin brush
+        Paint ePaint = new Paint();
+        ePaint.setColor(Color.BLUE);
+        ePaint.setStrokeCap(Paint.Cap.ROUND);
+        ePaint.setAntiAlias(true);
+        ePaint.setStrokeWidth(20);
+
+        return ePaint;
+    }
+
+    private Paint initPaintB() {
+        //        end brush
+        Paint bPaint = new Paint();
+        bPaint.setColor(Color.GREEN);
+        bPaint.setStrokeCap(Paint.Cap.ROUND);
+        bPaint.setAntiAlias(true);
+        bPaint.setStrokeWidth(20);
+
+        return bPaint;
     }
 }
