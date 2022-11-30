@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_main_background"
     android:elevation="10dp"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -13,47 +14,83 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:minHeight="60dp">
+        android:minHeight="60dp"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/mInput"
-            android:layout_width="100dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <Spinner
-                android:id="@+id/bSpinner"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/begspinnerstr"
-                android:minHeight="24dp" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="136dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/spinner_caption_b"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/spinner_caption_e"
+                android:textColor="@color/white" />
         </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/buttonMap"
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            android:backgroundTint="#2B2B2B"
-            android:focusableInTouchMode="false"
-            android:src="@drawable/ic_baseline_directions_walk_24"
-            tools:ignore="SpeakableTextPresentCheck" />
-
         <LinearLayout
-            android:id="@+id/mOutput"
-            android:layout_width="100dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <Spinner
-                android:id="@+id/eSpinner"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/mOutput"
+                android:layout_width="100dp"
                 android:layout_height="match_parent"
-                android:contentDescription="@string/endspinnerstr"
-                android:minHeight="24dp" />
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:id="@+id/bSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/spinner_begin"
+                    android:contentDescription="@string/begspinnerstr"
+                    android:minHeight="24dp"
+                    android:spinnerMode="dropdown" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/buttonMap"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:backgroundTint="#2B2B2B"
+                android:focusableInTouchMode="false"
+                android:src="@drawable/ic_baseline_directions_walk_24"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <LinearLayout
+                android:id="@+id/mInput"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:id="@+id/eSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/spinner_end"
+                    android:contentDescription="@string/endspinnerstr"
+                    android:minHeight="24dp"
+                    android:spinnerMode="dropdown" />
+
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>

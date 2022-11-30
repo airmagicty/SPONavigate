@@ -90,25 +90,32 @@ public class MapContainer {
 
         // создаем изображение для рисования
         int drawableId = 0;
+        int drawableTextId = 0;
         switch (mapFloor) {
             case 1: // загружаем ресурс поверх которого рисуем h1
                 drawableId = R.drawable.h1;
+                drawableTextId = R.drawable.h1_text;
                 break;
             case 2: // загружаем ресурс поверх которого рисуем h2
                 drawableId = R.drawable.h2;
+                drawableTextId = R.drawable.h2_text;
                 break;
             case 3: // загружаем ресурс поверх которого рисуем h3
                 drawableId = R.drawable.h3;
+                drawableTextId = R.drawable.h3_text;
                 break;
         }
 
         Paint mPaint = initPaint();
         Paint ePaint = initPaintE();
         Paint bPaint = initPaintB();
+        Paint textPaint = initPaintText();
         BitmapFactory.Options opts = new BitmapFactory.Options();
         opts.inScaled = false;
         Bitmap bitmapPlace = BitmapFactory.decodeResource(
                 context.getResources(), drawableId, opts);
+        Bitmap bitmapPlaceText = BitmapFactory.decodeResource(
+                context.getResources(), drawableTextId, opts);
         bitmapPlace = bitmapPlace.copy(Bitmap.Config.ARGB_8888, true); // копируем результат для изменения
         Canvas bitmapPlaceDraw = new Canvas(bitmapPlace); // создаем канвас для рисования
 
@@ -155,6 +162,10 @@ public class MapContainer {
             if (mapPoints.get(mapEnd).floor == mapFloor) {
                 bitmapPlaceDraw.drawCircle(mapPoints.get(mapEnd).pos.get(0), mapPoints.get(mapEnd).pos.get(1), 20, ePaint);
             }
+
+            bitmapPlaceDraw.drawBitmap(bitmapPlaceText, 0, 0, textPaint);
+
+
         }
         return bitmapPlace;
     }
@@ -162,7 +173,7 @@ public class MapContainer {
     // настройка кисти
     private Paint initPaint() {
         Paint mPaint = new Paint();
-        mPaint.setColor(Color.RED);
+        mPaint.setColor(Color.parseColor("#559cff"));
         mPaint.setStrokeCap(Paint.Cap.ROUND);
         mPaint.setAntiAlias(true);
         mPaint.setStrokeWidth(20);
@@ -173,7 +184,7 @@ public class MapContainer {
     private Paint initPaintE() {
         //        begin brush
         Paint ePaint = new Paint();
-        ePaint.setColor(Color.BLUE);
+        ePaint.setColor(Color.parseColor("#f3412f"));
         ePaint.setStrokeCap(Paint.Cap.ROUND);
         ePaint.setAntiAlias(true);
         ePaint.setStrokeWidth(20);
@@ -184,11 +195,17 @@ public class MapContainer {
     private Paint initPaintB() {
         //        end brush
         Paint bPaint = new Paint();
-        bPaint.setColor(Color.GREEN);
         bPaint.setStrokeCap(Paint.Cap.ROUND);
+        bPaint.setColor(Color.parseColor("#2663B1"));
         bPaint.setAntiAlias(true);
         bPaint.setStrokeWidth(20);
 
         return bPaint;
+    }
+
+    private Paint initPaintText() {
+        Paint textPaint = new Paint();
+        return textPaint;
+
     }
 }

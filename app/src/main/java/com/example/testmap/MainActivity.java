@@ -33,8 +33,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        Убирает titlebar сверху
-        getSupportActionBar().hide();
+        getSupportActionBar().hide(); //    Убирает titlebar сверху
         setContentView(R.layout.activity_main);
 
         mapImage = findViewById(R.id.mapImage);

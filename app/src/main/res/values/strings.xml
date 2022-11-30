@@ -9,4 +9,6 @@
     <string name="d">D</string>
     <string name="begspinnerstr">Откуда</string>
     <string name="endspinnerstr">Куда</string>
+    <string name="spinner_caption_b">Откуда</string>
+    <string name="spinner_caption_e">Куда</string>
 </resources>
