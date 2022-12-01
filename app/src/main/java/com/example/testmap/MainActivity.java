@@ -18,7 +18,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String LOG_TAG = "DebugMainActivity";
 
     private ImageButton buttonMap, buttonU, buttonD, buttonR, buttonL;
     private ImageView mapImage;
@@ -29,8 +28,9 @@ public class MainActivity extends AppCompatActivity {
     public MapContainer map;
 
     private int rotate = 0;
-    private int mapBegin, mapEnd, mapFloor = 1;
+    private int mapBegin, mapEnd, mapFloor = 3;
 
+    private int mapBeginTemp, mapEndTemp = 0;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +67,9 @@ public class MainActivity extends AppCompatActivity {
     private void generateNewMap() {
         loaderMap = new MapDrawer(this, map, mapImage, mapBegin, mapEnd, mapFloor);
         loaderMap.execute();
+        mapBeginTemp = mapBegin;
+        mapEndTemp = mapEnd;
+
 
 //        textDebug.setText("fl="+mapFloor+" b="+mapBegin+" e="+mapEnd);
     }
@@ -182,13 +185,12 @@ public class MainActivity extends AppCompatActivity {
         mapImage.animate().rotation(rotate);
     }
 
-    private void ToastFloorFunc () {
+    public void ToastFloorFunc () {
         Context context = getApplicationContext();
         String textFloor_temp = String.valueOf(mapFloor);
         String textFloor = (textFloor_temp + " этаж");
-        int duration = Toast.LENGTH_SHORT;
 
-        Toast toastFloor = Toast.makeText(context, textFloor, duration);
+        Toast toastFloor = Toast.makeText(context, textFloor, Toast.LENGTH_SHORT);
         toastFloor.show();
     }
 }

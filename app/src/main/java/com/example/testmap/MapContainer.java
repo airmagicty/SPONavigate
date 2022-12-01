@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -104,10 +105,10 @@ public class MapContainer {
                 break;
         }
 
-        Paint mPaint = initPaint();
-        Paint ePaint = initPaintE();
-        Paint bPaint = initPaintB();
-        Paint textPaint = initPaintText();
+        Paint mPaint = initPaint(); // Иниц. главной кисти для пути
+        Paint ePaint = initPaintE(); // Иниц. кисти для отрисовки последней точки
+        Paint bPaint = initPaintB(); // Иниц. кисти для отрисовки первой точки
+        Paint textPaint = initPaintText();  // Иниц. кисти для отрисовки текста поверх отрисованных путей
         BitmapFactory.Options opts = new BitmapFactory.Options();
         opts.inScaled = false;
         Bitmap bitmapPlace = BitmapFactory.decodeResource(
@@ -129,7 +130,7 @@ public class MapContainer {
 
             // идем по роутелисту и рисуем линии из начала в конец
             for (int i = 1; i < routelist.size(); i++) {
-                MapPoint buffGetB = mapPoints.get(routelist.get(i-1));
+                MapPoint buffGetB = mapPoints.get(routelist.get(i - 1));
                 MapPoint buffGetE = mapPoints.get(routelist.get(i));
 
                 if (buffGetE == null || buffGetB == null) {
@@ -161,9 +162,11 @@ public class MapContainer {
                 bitmapPlaceDraw.drawCircle(mapPoints.get(mapEnd).pos.get(0), mapPoints.get(mapEnd).pos.get(1), 20, ePaint);
             }
 
-            bitmapPlaceDraw.drawBitmap(bitmapPlaceText, 0, 0, textPaint);
+            bitmapPlaceDraw.drawBitmap(bitmapPlaceText, 0, 0, textPaint);  // Отрисовка текста
 
 
+        } else {
+            bitmapPlaceDraw.drawBitmap(bitmapPlaceText, 0, 0, textPaint);  // Отрисовка текста
         }
         return bitmapPlace;
     }
