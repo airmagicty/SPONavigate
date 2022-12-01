@@ -118,7 +118,7 @@ public class MapContainer {
         bitmapPlace = bitmapPlace.copy(Bitmap.Config.ARGB_8888, true); // копируем результат для изменения
         Canvas bitmapPlaceDraw = new Canvas(bitmapPlace); // создаем канвас для рисования
 
-        // рисовать по List
+        // Если выбранные точки не одинаковы, то будет отрисовка пути | рисовать по List
         if (!Objects.equals(mapBegin, mapEnd)) {
             int srcW = bitmapPlace.getWidth();
             int srcH = bitmapPlace.getHeight();
@@ -154,10 +154,12 @@ public class MapContainer {
                         mPaint
                 );
             }
+            // Проверка на первую точку и отрисовка поверх неё точки начала
             if (mapPoints.get(mapBegin).floor == mapFloor) {
                 bitmapPlaceDraw.drawCircle(mapPoints.get(mapBegin).pos.get(0), mapPoints.get(mapBegin).pos.get(1), 20, bPaint);
             }
 
+            // Проверка на последнюю точку и отрисовка поверх неё точки конца
             if (mapPoints.get(mapEnd).floor == mapFloor) {
                 bitmapPlaceDraw.drawCircle(mapPoints.get(mapEnd).pos.get(0), mapPoints.get(mapEnd).pos.get(1), 20, ePaint);
             }
@@ -166,6 +168,7 @@ public class MapContainer {
 
 
         } else {
+            // Или отрисовка текста поверх карты этажа
             bitmapPlaceDraw.drawBitmap(bitmapPlaceText, 0, 0, textPaint);  // Отрисовка текста
         }
         return bitmapPlace;
@@ -181,7 +184,7 @@ public class MapContainer {
         return mPaint;
 
     }
-
+    // настройка кисти для конеченой точки
     private Paint initPaintE() {
         //        begin brush
         Paint ePaint = new Paint();
@@ -192,7 +195,7 @@ public class MapContainer {
 
         return ePaint;
     }
-
+    // настройка кисти для начальной точки
     private Paint initPaintB() {
         //        end brush
         Paint bPaint = new Paint();
@@ -203,7 +206,7 @@ public class MapContainer {
 
         return bPaint;
     }
-
+    // настройка кисти для текста
     private Paint initPaintText() {
         Paint textPaint = new Paint();
         return textPaint;

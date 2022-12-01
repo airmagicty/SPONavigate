@@ -29,8 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
     private int rotate = 0;
     private int mapBegin, mapEnd, mapFloor = 3;
-
-    private int mapBeginTemp, mapEndTemp = 0;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,11 +62,10 @@ public class MainActivity extends AppCompatActivity {
         loader.execute();
     }
 
+    // Вызов генерации карты для нового пути
     private void generateNewMap() {
         loaderMap = new MapDrawer(this, map, mapImage, mapBegin, mapEnd, mapFloor);
         loaderMap.execute();
-        mapBeginTemp = mapBegin;
-        mapEndTemp = mapEnd;
 
 
 //        textDebug.setText("fl="+mapFloor+" b="+mapBegin+" e="+mapEnd);
@@ -185,6 +182,7 @@ public class MainActivity extends AppCompatActivity {
         mapImage.animate().rotation(rotate);
     }
 
+    // Функция вызова Toast для показа номера текущего этажа
     public void ToastFloorFunc () {
         Context context = getApplicationContext();
         String textFloor_temp = String.valueOf(mapFloor);
