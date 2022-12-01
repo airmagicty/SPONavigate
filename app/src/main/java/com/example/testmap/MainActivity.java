@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         loadNewMap(); // Стартовая инициализация карты
         floorButtonVisible();
+        ToastFloorFunc();
     }
 
     private void loadNewMap() {
