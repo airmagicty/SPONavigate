@@ -3,8 +3,10 @@ package com.example.testmap;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewDebug;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
@@ -127,6 +129,8 @@ public class MainActivity extends AppCompatActivity {
             mapFloor = mapFloor+1;
             generateNewMap();
         }
+
+        ToastFloorFunc();
         floorButtonVisible();
     }
 
@@ -136,6 +140,8 @@ public class MainActivity extends AppCompatActivity {
             mapFloor = mapFloor-1;
             generateNewMap();
         }
+
+        ToastFloorFunc();
         floorButtonVisible();
     }
 
@@ -174,5 +180,15 @@ public class MainActivity extends AppCompatActivity {
             rotate = 0;
         }
         mapImage.animate().rotation(rotate);
+    }
+
+    private void ToastFloorFunc () {
+        Context context = getApplicationContext();
+        String textFloor_temp = String.valueOf(mapFloor);
+        String textFloor = (textFloor_temp + " этаж");
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toastFloor = Toast.makeText(context, textFloor, duration);
+        toastFloor.show();
     }
 }

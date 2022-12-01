@@ -7,8 +7,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-import androidx.annotation.ColorInt;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
