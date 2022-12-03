@@ -122,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
     // Кнопка построения маршрута
     private void newRoute (View view) {
         generateNewMap();
+        floorButtonVisible();
     }
 
     // Этаж выше
