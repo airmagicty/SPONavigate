@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -33,7 +32,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/spinner_caption_b"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                tools:ignore="NestedWeights" />
 
             <TextView
                 android:id="@+id/textViewEnd"
@@ -56,7 +56,8 @@
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="NestedWeights">
 
                 <Spinner
                     android:id="@+id/bSpinner"
@@ -65,7 +66,8 @@
                     android:background="@color/spinner_begin"
                     android:contentDescription="@string/begspinnerstr"
                     android:minHeight="24dp"
-                    android:spinnerMode="dropdown" />
+                    android:spinnerMode="dropdown"
+                    tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
 
             <ImageButton
@@ -75,9 +77,10 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:backgroundTint="#2B2B2B"
+                android:contentDescription="@string/todo"
                 android:focusableInTouchMode="false"
                 android:src="@drawable/ic_baseline_directions_walk_24"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             <LinearLayout
                 android:id="@+id/mInput"
@@ -93,7 +96,8 @@
                     android:background="@color/spinner_end"
                     android:contentDescription="@string/endspinnerstr"
                     android:minHeight="24dp"
-                    android:spinnerMode="dropdown" />
+                    android:spinnerMode="dropdown"
+                    tools:ignore="TouchTargetSizeCheck" />
 
             </LinearLayout>
         </LinearLayout>
@@ -117,48 +121,54 @@
             android:id="@+id/buttonL"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:backgroundTint="#2B2B2B"
             android:minHeight="48dp"
             app:srcCompat="@drawable/ic_baseline_rotate_right_24"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            android:contentDescription="@string/todo" />
 
         <ImageButton
             android:id="@+id/buttonD"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_below="@+id/buttonU"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:backgroundTint="#2B2B2B"
             android:clickable="true"
             android:minHeight="48dp"
             app:srcCompat="@drawable/ic_baseline_arrow_downward_24"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            android:contentDescription="@string/todo"
+            android:focusable="true" />
 
         <ImageButton
             android:id="@+id/buttonU"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_marginTop="280dp"
             android:backgroundTint="#2B2B2B"
             android:clickable="true"
             android:minHeight="48dp"
             app:srcCompat="@drawable/ic_baseline_arrow_upward_24"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            android:contentDescription="@string/todo"
+            android:focusable="true" />
 
         <ImageButton
             android:id="@+id/buttonR"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:backgroundTint="#2B2B2B"
             android:minHeight="48dp"
             app:srcCompat="@drawable/ic_baseline_rotate_left_24"
-            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck"
+            android:contentDescription="@string/todo" />
 
         <TextView
             android:id="@+id/textDebug"
