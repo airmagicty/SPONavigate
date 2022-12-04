@@ -6,7 +6,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -21,16 +20,19 @@ import java.util.Map;
 import java.util.Objects;
 
 public class MapContainer {
+    // описываем классы контейнеров
     public Map<Integer, MapPoint> mapPoints;
     public List<Route> routes;
     public List<ListSpinner> spinners;
 
+    // загружаем данные в объекты из json
     public void loadData(Context context) {
         mapPoints = loadSourceRaw_data_vectors(context); // загрузка карты из json
         routes = loadSourceRaw_data_map(context); // загрузка пути из json
         spinners = loadSourceRaw_data_spinner(context);
     }
 
+    // загрузка из data_vectors.json в mapPoints
     private Map<Integer, MapPoint> loadSourceRaw_data_vectors (Context context) {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(
@@ -45,6 +47,7 @@ public class MapContainer {
         }
     }
 
+    // загрузка из data_map.json в routes
     private List<Route> loadSourceRaw_data_map (Context context) {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(
@@ -59,6 +62,7 @@ public class MapContainer {
         }
     }
 
+    // загрузка из data_spinner.json в spinners
     private List<ListSpinner> loadSourceRaw_data_spinner (Context context) {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(
@@ -73,8 +77,9 @@ public class MapContainer {
         }
     }
 
+    // сама функция рисования из mapBegin в mapEnd
     public Bitmap drawPathOnMapImage (Context context, int mapBegin, int mapEnd, int mapFloor) {
-        List<Integer> routelist = new ArrayList<Integer>();
+        List<Integer> routelist = new ArrayList<>();
 
         // поиск path в mapPathes по полям (beg = mapBegin && end = mapEnd)
         if (!Objects.equals(mapBegin, mapEnd)) {
@@ -109,24 +114,26 @@ public class MapContainer {
         Paint ePaint = initPaintE(); // Иниц. кисти для отрисовки последней точки
         Paint bPaint = initPaintB(); // Иниц. кисти для отрисовки первой точки
         Paint textPaint = initPaintText();  // Иниц. кисти для отрисовки текста поверх отрисованных путей
+
+        // создание битмапа для рисования
         BitmapFactory.Options opts = new BitmapFactory.Options();
-        opts.inScaled = false;
+        opts.inScaled = false; // убираем внутренне масштабирование
         Bitmap bitmapPlace = BitmapFactory.decodeResource(
                 context.getResources(), drawableId, opts);
+
         Bitmap bitmapPlaceText = BitmapFactory.decodeResource(
                 context.getResources(), drawableTextId, opts);
+
         bitmapPlace = bitmapPlace.copy(Bitmap.Config.ARGB_8888, true); // копируем результат для изменения
         Canvas bitmapPlaceDraw = new Canvas(bitmapPlace); // создаем канвас для рисования
 
         // Если выбранные точки не одинаковы, то будет отрисовка пути | рисовать по List
         if (!Objects.equals(mapBegin, mapEnd)) {
+            // локальные буферы
             int srcW = bitmapPlace.getWidth();
             int srcH = bitmapPlace.getHeight();
             int dstW = bitmapPlaceDraw.getWidth();
             int dstH = bitmapPlaceDraw.getHeight();
-
-            // рисуем начало и конец
-
 
             // идем по роутелисту и рисуем линии из начала в конец
             for (int i = 1; i < routelist.size(); i++) {
@@ -154,18 +161,20 @@ public class MapContainer {
                         mPaint
                 );
             }
+
             // Проверка на первую точку и отрисовка поверх неё точки начала
-            if (mapPoints.get(mapBegin).floor == mapFloor) {
-                bitmapPlaceDraw.drawCircle(mapPoints.get(mapBegin).pos.get(0), mapPoints.get(mapBegin).pos.get(1), 20, bPaint);
+            if (Objects.requireNonNull(mapPoints.get(mapBegin)).floor == mapFloor) {
+                bitmapPlaceDraw.drawCircle(Objects.requireNonNull(mapPoints.get(mapBegin)).pos.get(0),
+                                           Objects.requireNonNull(mapPoints.get(mapBegin)).pos.get(1), 20, bPaint);
             }
 
             // Проверка на последнюю точку и отрисовка поверх неё точки конца
-            if (mapPoints.get(mapEnd).floor == mapFloor) {
-                bitmapPlaceDraw.drawCircle(mapPoints.get(mapEnd).pos.get(0), mapPoints.get(mapEnd).pos.get(1), 20, ePaint);
+            if (Objects.requireNonNull(mapPoints.get(mapEnd)).floor == mapFloor) {
+                bitmapPlaceDraw.drawCircle(Objects.requireNonNull(mapPoints.get(mapEnd)).pos.get(0),
+                                           Objects.requireNonNull(mapPoints.get(mapEnd)).pos.get(1), 20, ePaint);
             }
 
             bitmapPlaceDraw.drawBitmap(bitmapPlaceText, 0, 0, textPaint);  // Отрисовка текста
-
 
         } else {
             // Или отрисовка текста поверх карты этажа
@@ -184,9 +193,10 @@ public class MapContainer {
         return mPaint;
 
     }
+
     // настройка кисти для конеченой точки
     private Paint initPaintE() {
-        //        begin brush
+        // begin brush
         Paint ePaint = new Paint();
         ePaint.setColor(Color.parseColor("#f3412f"));
         ePaint.setStrokeCap(Paint.Cap.ROUND);
@@ -195,9 +205,10 @@ public class MapContainer {
 
         return ePaint;
     }
+
     // настройка кисти для начальной точки
     private Paint initPaintB() {
-        //        end brush
+        // end brush
         Paint bPaint = new Paint();
         bPaint.setStrokeCap(Paint.Cap.ROUND);
         bPaint.setColor(Color.parseColor("#2663B1"));
@@ -206,10 +217,9 @@ public class MapContainer {
 
         return bPaint;
     }
+
     // настройка кисти для текста
     private Paint initPaintText() {
-        Paint textPaint = new Paint();
-        return textPaint;
-
+        return new Paint();
     }
 }

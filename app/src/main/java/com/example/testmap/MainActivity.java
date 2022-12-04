@@ -6,72 +6,79 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewDebug;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageButton buttonMap, buttonU, buttonD, buttonR, buttonL;
+    private ImageButton buttonU;
+    private ImageButton buttonD;
     private ImageView mapImage;
-    private TextView textDebug;
     private Spinner bSpinner, eSpinner;
 
+    // объявление контейнера с методами инициализации
     MapDrawer loaderMap;
     public MapContainer map;
 
+    // объявление переменных для работы с отображением
     private int rotate = 0;
-    private int mapBegin, mapEnd, mapFloor = 3;
+    private int mapBegin, mapEnd, mapFloor = 1;
+    //private TextView textDebug;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide(); //    Убирает titlebar сверху
+        Objects.requireNonNull(getSupportActionBar()).hide(); //    Убирает titlebar сверху
         setContentView(R.layout.activity_main);
 
+        // связываем id с объектами
         mapImage = findViewById(R.id.mapImage);
-        buttonMap = findViewById(R.id.buttonMap);
-        buttonR = findViewById(R.id.buttonR);
-        buttonL = findViewById(R.id.buttonL);
+        // объявление объектов интерактива
+        ImageButton buttonMap = findViewById(R.id.buttonMap);
+        ImageButton buttonR = findViewById(R.id.buttonR);
+        ImageButton buttonL = findViewById(R.id.buttonL);
         buttonU = findViewById(R.id.buttonU);
         buttonD = findViewById(R.id.buttonD);
         bSpinner = findViewById(R.id.bSpinner);
         eSpinner = findViewById(R.id.eSpinner);
 
-        textDebug = findViewById(R.id.textDebug);
+        //textDebug = findViewById(R.id.textDebug);
 
+        // назначаем собтия нажатий
         buttonMap.setOnClickListener(this::newRoute);
         buttonR.setOnClickListener(this::rotateMapRight);
         buttonL.setOnClickListener(this::rotateMapLeft);
         buttonU.setOnClickListener(this::floorUp);
         buttonD.setOnClickListener(this::floorDown);
 
+        // стартовые инициализации
         loadNewMap(); // Стартовая инициализация карты
-        floorButtonVisible();
-        ToastFloorFunc();
+        floorButtonVisible(); // обновление кнопок
+        ToastFloorFunc(); // первое оповещение отображения этажа
     }
 
+    // загрузка новой карты
     private void loadNewMap() {
         MapLoader loader = new MapLoader(this, this);
         loader.execute();
     }
 
-    // Вызов генерации карты для нового пути
+    // генерация новой карты
     private void generateNewMap() {
         loaderMap = new MapDrawer(this, map, mapImage, mapBegin, mapEnd, mapFloor);
         loaderMap.execute();
-
-
 //        textDebug.setText("fl="+mapFloor+" b="+mapBegin+" e="+mapEnd);
     }
 
+    // инициализация выпадающих списков
     private void spinnerInitialization () {
         ArrayList<String> arraySpinner = new ArrayList<>();
 
@@ -79,12 +86,14 @@ public class MainActivity extends AppCompatActivity {
             arraySpinner.add(map.spinners.get(i).name);
         }
 
-        ArrayAdapter<String> arraySpinnerAdapter = new ArrayAdapter<String>(this,
+        // связываем спиннеры с объектами списков
+        ArrayAdapter<String> arraySpinnerAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, arraySpinner);
         arraySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         bSpinner.setAdapter(arraySpinnerAdapter);
         eSpinner.setAdapter(arraySpinnerAdapter);
 
+        // вызываем функции по выбору варианта
         bSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
@@ -92,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 // показываем позиция нажатого элемента
                 //Toast.makeText(getBaseContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
                 mapBegin = map.spinners.get(position).id;
-                mapFloor = map.mapPoints.get(mapBegin).floor;
+                mapFloor = Objects.requireNonNull(map.mapPoints.get(mapBegin)).floor;
             }
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
@@ -113,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // сохраняем инициализированную карту
     public void saveMap (MapContainer map) {
         this.map = map;
         generateNewMap(); // отрисовка карты
@@ -147,6 +157,7 @@ public class MainActivity extends AppCompatActivity {
         floorButtonVisible();
     }
 
+    // красивое оформление ограничения этажей
     private void floorButtonVisible () {
         switch (mapFloor) {
             case 1:
@@ -184,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
         mapImage.animate().rotation(rotate);
     }
 
-    // Функция вызова Toast для показа номера текущего этажа
+    // уведомление об этаже
     public void ToastFloorFunc () {
         Context context = getApplicationContext();
         String textFloor_temp = String.valueOf(mapFloor);

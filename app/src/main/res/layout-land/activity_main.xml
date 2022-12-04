@@ -24,7 +24,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textViewBegin"
                 android:layout_width="244dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -32,7 +32,7 @@
                 android:textColor="@color/white" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textViewEnd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
